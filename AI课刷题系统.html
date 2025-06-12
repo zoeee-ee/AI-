@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多章节刷题系统</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #2a4d69, #4b86b4);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(90deg, #2c3e50, #4a6491);
+            color: white;
+            padding: 25px 30px;
+            text-align: center;
+            border-bottom: 5px solid #3498db;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #2c3e50;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav li {
+            cursor: pointer;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav li:hover {
+            background-color: #3498db;
+        }
+
+        .chapter {
+            display: none;
+            padding: 20px;
+        }
+
+        .chapter.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-book-open"></i> 多章节刷题系统</h1>
+        </header>
+        <nav>
+            <ul>
+                <li onclick="showChapter('chapter1')">第一章</li>
+                <li onclick="showChapter('chapter2')">第二章</li>
+                <li onclick="showChapter('chapter3')">第三章</li>
+                <li onclick="showChapter('chapter4')">第四章</li>
+                <li onclick="showChapter('chapter5')">第五章</li>
+                <li onclick="showChapter('chapter7')">第七章</li>
+            </ul>
+        </nav>
+        <div id="chapter1" class="chapter">
+            <iframe src="第一章.html" frameborder="0" width="100%" height="800px"></iframe>
+        </div>
+        <div id="chapter2" class="chapter">
+            <iframe src="第二章前半部分.html" frameborder="0" width="100%" height="800px"></iframe>
+            <!-- 如果第二章还有后半部分，可以继续添加 -->
+            <iframe src="第二章后半部分.html" frameborder="0" width="100%" height="800px"></iframe>
+        </div>
+        <div id="chapter3" class="chapter">
+            <iframe src="第三章前半部分.html" frameborder="0" width="100%" height="800px"></iframe>
+            <iframe src="第三章中间部分.html" frameborder="0" width="100%" height="800px"></iframe>
+        </div>
+        <div id="chapter4" class="chapter">
+            <iframe src="第四章前半部分.html" frameborder="0" width="100%" height="800px"></iframe>
+            <iframe src="第四章后半部分.html" frameborder="0" width="100%" height="800px"></iframe>
+        </div>
+        <div id="chapter5" class="chapter">
+            <iframe src="第五章前半部分.html" frameborder="0" width="100%" height="800px"></iframe>
+            <iframe src="第五章后半部分.html" frameborder="0" width="100%" height="800px"></iframe>
+        </div>
+        <div id="chapter7" class="chapter">
+            <iframe src="第七章前半部分.html" frameborder="0" width="100%" height="800px"></iframe>
+            <iframe src="第七章后半部分.html" frameborder="0" width="100%" height="800px"></iframe>
+        </div>
+    </div>
+
+    <script>
+        function showChapter(chapterId) {
+            const chapters = document.querySelectorAll('.chapter');
+            chapters.forEach(chapter => {
+                chapter.classList.remove('active');
+            });
+            const selectedChapter = document.getElementById(chapterId);
+            selectedChapter.classList.add('active');
+        }
+
+        // 默认显示第一章
+        showChapter('chapter1');
+    </script>
+</body>
+</html>
